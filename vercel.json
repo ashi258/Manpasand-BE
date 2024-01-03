@@ -1,0 +1,38 @@
+{
+    "builds": [
+        {
+            "src": "index.js",
+            "use": "@vercel/node"
+        },
+        {
+            "src": "dist/**",
+            "use": "@vercel/static"
+        }
+    ],
+    "routes": [
+        {
+            "src": "/api/(.*)",
+            "dest": "index.js"
+        },
+        {
+            "src": "/",
+            "dest": "dist/index.html"
+        },
+        {
+            "src": "/login",
+            "dest": "dist/index.html"
+        },
+        {
+            "src": "/createuser",
+            "dest": "dist/index.html"
+        },
+        {
+            "src": "/myorder",
+            "dest": "dist/index.html"
+        },
+        {
+            "src": "/(.+)",
+            "dest": "dist/$1"
+        }
+    ]
+}
